@@ -16,9 +16,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css" />
   <!-- Custom Theme Css -->
   <link rel="stylesheet" href="./dist/main.css" />
+
 </head>
 
 <body>
+
   <!-- Header Section Start  -->
   <header>
     <!-- Hero Image Starts Here -->
@@ -367,14 +369,16 @@
     <p>Book a table online. Leads will reach in your email.</p>
     <div class="card">
       <div class="card-body">
-        <form action="./php/reservation.php" method="post" id="my-form">
+        
+        <form action="reservation.php" method="get" id="my-form" onsubmit="runCode(event)">
           <div class="container text-center p-10">
             <div class="row">
               <div class="col">
                 <div class="mb-3">
                   <label for="InputEmail" class="form-label">Email address</label>
                   <div class="form-group">
-                    <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" />
+                    <input type="email" class="form-control" id="InputEmail" name="email" value="email"
+                      aria-describedby="emailHelp" />
                     <i class="fa-solid fa-envelope custom-font"></i>
                   </div>
                   <div id="emailHelp" class="form-text">
@@ -386,7 +390,7 @@
                 <div class="mb-3">
                   <label for="InputDate" class="form-label">Date</label>
                   <div class="form-group">
-                    <input type="text" class="form-control" id="datepicker" aria-describedby="dateHelp" />
+                    <input type="text" class="form-control" id="datepicker" name="date" value="date" aria-describedby="dateHelp" />
                     <i class="fa fa-calendar custom-font" aria-hidden="true"></i>
                   </div>
                 </div>
@@ -395,7 +399,7 @@
                 <div class="mb-3">
                   <label for="InputName" class="form-label">Name</label>
                   <div class="form-group">
-                    <input type="text" class="form-control" id="InputName" aria-describedby="nameHelp" />
+                    <input type="text" class="form-control" id="InputName" name="name" value="name" aria-describedby="nameHelp" />
                     <i class="fa-regular fa-file-signature custom-font"></i>
                   </div>
                 </div>
@@ -407,7 +411,7 @@
                   <label for="InputTime" class="form-label">Time</label>
 
                   <div class="form-group">
-                    <input type="text" class="form-control" id="datetime" aria-describedby="timeHelp" />
+                    <input type="text" class="form-control" id="datetime" name="time" value="time" aria-describedby="timeHelp" />
                     <i class="fa-solid fa-clock custom-font"></i>
                   </div>
                 </div>
@@ -417,7 +421,8 @@
                 <div class="mb-3">
                   <label for="InputGuests" class="form-label">Guests</label>
                   <div class="form-group">
-                    <input type="text" class="form-control" id="InputGuests" aria-describedby="guestsHelp" />
+                    <input type="text" class="form-control" id="InputGuests" name="guests" value="guests"
+                      aria-describedby="guestsHelp" />
                     <i class="fa-solid fa-person custom-font"></i>
                   </div>
                 </div>
@@ -426,7 +431,7 @@
                 <div class="mb-3">
                   <label for="InputPhone" class="form-label">Phone Number</label>
                   <div class="form-group">
-                    <input type="text" class="form-control" id="InputPhone" aria-describedby="phoneHelp" />
+                    <input type="text" class="form-control" id="InputPhone" name="phone" value="phone" aria-describedby="phoneHelp" />
                     <i class="fa-solid fa-phone custom-font "></i>
                   </div>
 
@@ -437,11 +442,14 @@
               </div>
             </div>
           </div>
-      </div>
+          <div id="sendmessage" style="display:none">Your message has been sent successfully.</div>
+      <button id="submit-button" class="glow-on-hover" type="submit" value = "submit">Book Now</button>
       </form>
+      </div>
+      
     </div>
     </div>
-    <button id="submit-button" class="glow-on-hover" type="submit">Book Now</button>
+
   </section>
 
   <!-- Reservation Section End -->
@@ -460,6 +468,9 @@
   <script src="https://cdn.jsdelivr.net/npm/timepicker@1.11.12/jquery.timepicker.js"></script>
   <!-- Custom Theme JS -->
   <script src="./dist/bundle.js"></script>
+  <script>function runCode(e) {
+      e.preventDefault()
+    }</script>
 </body>
 
 </html>
