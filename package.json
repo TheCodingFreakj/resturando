@@ -6,11 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --mode=development --config webpack.config.js",
-    "dev": "onchange \"js\" -- webpack --mode=development",
-    "build:html": "posthtml -c posthtml.json",
-    "serve": "http-server",
-    "all": "npm run build && npm run serve webpack --watch"
+ "start": "nodemon ./backend/server.js"
   },
   "author": "",
   "license": "ISC",
