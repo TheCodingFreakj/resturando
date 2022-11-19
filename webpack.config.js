@@ -9,7 +9,12 @@ const require = createRequire(import.meta.url);
 import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const entry = "./js/app.js";
+// const entry = "./js/app.js";
+
+const entry = {
+  main: "./js/app",
+
+};
 const output = {
   path: `${__dirname}/dist`,
   filename: "bundle.js",
@@ -73,6 +78,15 @@ export default {
       }),
       new CssMinimizerPlugin(),
     ],
+  },
+  devServer: {
+    hot: true,
+    https: false,
+    inline: true,
+    host: "http://127.0.0.1",
+    port: 5700,
+    contentBase: `${__dirname}`,
+  
   },
 };
 
